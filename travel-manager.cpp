@@ -29,7 +29,7 @@ class Customers //create class
 {
 	public:
 		string name,gender,address; //atributes
-		int age,mobile_no,menuBack;
+		long long int age,mobile_no,menuBack;
 		static int cus_ID;
 		char all[999]; // create this array for getline() function
 		
@@ -60,20 +60,19 @@ class Customers //create class
 		//show the details
 		void showDetails()
 		{
-			ifstream in("old-customers.txt");
+			ifstream inf("old-customers.txt");
 			{
-				if (!in)
+				if (!inf)
 				{
 					cout<<"File Error!"<<endl;
 				}
-				while (!(in.eof())) // .eof comes from fstream header file
+				while (!(inf.eof())) // .eof comes from fstream header file
 				{
-					in.getline(all, 999); // to get all lines 
-					cout<<"all"<<endl;
+					inf.getline(all,999); // to get all lines 
+					cout<<all<<endl;
 				}
-				in.close(); //close this open file 
-				
 			}
+			inf.close(); //close this open file 
 		}
 };
 
@@ -88,10 +87,10 @@ class Cabs
 		
 		void cabDetails()
 		{
-			cout<<"We collaborated with fastest, safest, and smartest cab service around the Country"<<endl;
-			cout<<"---------- ABC Cabs ----------\n"<<endl;
-			cout<<"1. Rent a Standard Cab - Rs. 15 for 1 Km"<<endl;
-			cout<<"2. Rent a Luxury Cab - Rs. 25 for 1 Km"<<endl;
+			cout<<"We collaborated with fastest, safest, and smartest cab service"<<endl;
+			cout<<"---------- SUBHA Cabs ----------\n"<<endl;
+			cout<<"1. Rent a Standard Cab - Rs. 20 for 1 Km"<<endl;
+			cout<<"2. Rent a Luxury Cab - Rs. 30 for 1 Km"<<endl;
 			
 			cout<<"\nTo Calculate the cost for your Journey: "<<endl;
 			cout<<"Enter which kind of Cab you need:";
@@ -102,7 +101,7 @@ class Cabs
 			int hireCab;
 			if (cabChoice==1)
 			{
-				cabCost=Km*15;
+				cabCost=Km*20;
 				cout<<"\n Your tour cost "<<cabCost<<" rupees for a Standard Cab"<<endl;
 				cout<<"Press 1 to hire this cab: or";
 				cout<<"Press 2 to select another cab: ";
@@ -130,7 +129,7 @@ class Cabs
 		    }
 		    else if (cabChoice==2)
 		    {
-		    	cabCost=Km*25;
+		    	cabCost=Km*30;
 				cout<<"\n Your tour cost "<<cabCost<<" rupees for a Luxury Cab"<<endl;
 				cout<<"Press 1 to hire this cab: or";
 				cout<<"Press 2 to select another cab: ";
@@ -265,32 +264,32 @@ class Booking
 				cout<<"Packages offered by Greenpark:\n"<<endl;
 				
 				cout<<"1. Standard pack"<<endl;
-				cout<<"\tAll basic facilities you need just for Rs. 5000.00"<<endl;
+				cout<<"\tAll basic facilities you need just for Rs. 5500.00"<<endl;
 				
 				cout<<"2. Premium pack"<<endl;
-				cout<<"\tEnjoy premium: Rs. 10000.00"<<endl;
+				cout<<"\tEnjoy premium: Rs. 11000.00"<<endl;
 				
 				cout<<"3. Luxury pack"<<endl;
-				cout<<"\tLive a Luxury pack at Blueview: Rs. 15000.00"<<endl;
+				cout<<"\tLive a Luxury pack at Blueview: Rs. 15500.00"<<endl;
 				
 				cout<<"\nPress another key to back or\nEnter number you want to book: ";
 				cin>>packChoice;
 				
 				if (packChoice==1)
 				{
-					hotelCost=5000.00;
+					hotelCost=5500.00;
 					cout<<"\nYou have successfully book Standard pack at Greenpark"<<endl;
 					cout<<"Goto Menu and take the receipt"<<endl;
 				}
 				else if (packChoice==2)
 				{
-					hotelCost=10000.00;
+					hotelCost=11000.00;
 					cout<<"\nYou have successfully book Premium pack at Greenpark"<<endl;
 					cout<<"Goto Menu and take the receipt"<<endl;
 				}
 				else if (packChoice==3)
 				{
-					hotelCost=15000.00;
+					hotelCost=15500.00;
 					cout<<"\nYou have successfully book Luxury pack at Greenpark"<<endl;
 					cout<<"Goto Menu and take the receipt"<<endl;
 				}
@@ -321,32 +320,32 @@ class Booking
 				cout<<"Packages offered by Elephantbay:\n"<<endl;
 				
 				cout<<"1. Standard pack"<<endl;
-				cout<<"\tAll basic facilities you need just for Rs. 5000.00"<<endl;
+				cout<<"\tAll basic facilities you need just for Rs. 6000.00"<<endl;
 				
 				cout<<"2. Premium pack"<<endl;
-				cout<<"\tEnjoy premium: Rs. 10000.00"<<endl;
+				cout<<"\tEnjoy premium: Rs. 12000.00"<<endl;
 				
 				cout<<"3. Luxury pack"<<endl;
-				cout<<"\tLive a Luxury pack at Elephantbay: Rs. 15000.00"<<endl;
+				cout<<"\tLive a Luxury pack at Elephantbay: Rs. 16000.00"<<endl;
 				
 				cout<<"\nPress another key to back or\nEnter number you want to book: ";
 				cin>>packChoice;
 				
 				if (packChoice==1)
 				{
-					hotelCost=5000.00;
+					hotelCost=6000.00;
 					cout<<"\nYou have successfully book Standard pack at Elephantbay"<<endl;
 					cout<<"Goto Menu and take the receipt"<<endl;
 				}
 				else if (packChoice==2)
 				{
-					hotelCost=10000.00;
+					hotelCost=12000.00;
 					cout<<"\nYou have successfully book Premium pack at Elephantbay"<<endl;
 					cout<<"Goto Menu and take the receipt"<<endl;
 				}
 				else if (packChoice==3)
 				{
-					hotelCost=15000.00;
+					hotelCost=16000.00;
 					cout<<"\nYou have successfully book Luxury pack at Elephantbay"<<endl;
 					cout<<"Goto Menu and take the receipt"<<endl;
 				}
@@ -383,7 +382,7 @@ class Charges : public Booking, Cabs, Customers // we use multi-level inheritanc
 		{
 			ofstream outf("receipt.txt");
 			{
-			    outf << "--------ABC Travel Agency--------" << endl;
+			    outf << "--------SUBHA Travel Agency--------" << endl;
 	            outf << "-------------Receipt-------------" << endl;
 	            outf << "_________________________________" << endl;
 	
@@ -425,7 +424,7 @@ void menu()
 	int inChoice;
 	int gotoMenu;
 	
-    cout << "\t\t      * ABC Travels *\n" << endl;
+    cout << "\t\t      * SUBHA Travels *\n" << endl;
     cout << "-------------------------Main Menu--------------------------" << endl;
 
     cout << "\t _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ " << endl;
@@ -445,7 +444,8 @@ void menu()
     system("CLS");
     
     Customers a2; // creating objects
-    Cabs a3;
+    Customers a8;
+	Cabs a3;
     Booking a4;
     Charges a5;
     
